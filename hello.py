@@ -26,9 +26,7 @@ def signup():
         g.db.close()
         return redirect(url_for('qr'))
     return render_template('signup.html')
-    #else:
-        #return redirect(url_for('qr'))
-        #return render_template('signup.html')
+
 
 @app.route('/qr', methods=['GET', 'POST'])
 def qr():
@@ -41,6 +39,12 @@ def qr():
 @app.route('/info/<name><contact><phone>', methods=['GET', 'POST'])
 def info(name, contact, phone):
     return render_template('info.html', mylist = [name,contact,phone])
+
+@app.route('/qresults', methods=['GET','POST'])
+def qresults():
+    #address = "66 Wellington St W, Toronto, ON"
+    posts = [dict(victim="Lily",contact="Jerry",phone="6479808401")]
+    return render_template('qresults.html',posts=posts)
 
 def connect_db():
     return sqlite3.connect(app.database)
