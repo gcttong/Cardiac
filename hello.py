@@ -1,8 +1,9 @@
+from __future__ import print_function
 from flask import Flask, render_template, redirect, \
 url_for, request, session, flash, g
+import sys
 
 import sqlite3
-
 app = Flask(__name__)
 app.database = "sample.db"
 
@@ -10,17 +11,21 @@ app.database = "sample.db"
 @app.route('/')
 def main():
     return render_template('signup.html')
+    #return redirect(url_for('info', name='Bob Wo', contact='Eddie Wang', phone='16479808401'))
+    #return redirect(url_for('info', name='eddie', contact='gary', phone=16479808401))
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    #error = None
     if request.method == 'POST':
-        #if len(str(request.form['inputPhone'])) != 10:
-        #    error = 'Invalid credentials'
-        #else:
-        print "execute"
+        g.db = connect_db()
+        victim = str(request.form['inputName'])
+        contact = str(request.form['inputContact'])
+        phone = str(request.form['inputPhone'])
+        g.db.execute('insert into contacts values (?, ?, ?)', (victim, contact, phone))
+        g.db.commit()
+        g.db.close()
         return redirect(url_for('qr'))
-    return redirect(url_for('qr'))
+    return render_template('signup.html')
     #else:
         #return redirect(url_for('qr'))
         #return render_template('signup.html')
@@ -33,9 +38,10 @@ def qr():
     g.db.close()
     return render_template('qr.html', posts=posts)
 
-'''@app.route('/info', methods=['GET', 'POST'])
-def info():
-    '''
+@app.route('/info/<name><contact><phone>', methods=['GET', 'POST'])
+def info(name, contact, phone):
+    return render_template('info.html', mylist = [name,contact,phone])
+
 def connect_db():
     return sqlite3.connect(app.database)
     

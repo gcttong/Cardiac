@@ -1,0 +1,59 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cardiac Alert</title>
+ 
+    
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/signup.css" rel="stylesheet">
+    
+  </head>
+ 
+  <body>
+ 
+    <div class="container">
+      <div class="header">
+        <h1 class="text-muted">Cardiac Alert</h1>
+      </div>
+      <div class="jumbotron">
+         {{ mylist[0] }}
+         <br>
+         {{ mylist[1] }}
+         <br>
+         {{ mylist[2] }}
+        <br>
+        <br>
+        <!--<form class="form-signin" action="/signup" method="post">
+
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="text" name="inputName" id="inputName" class="form-control" 
+        placeholder="Name" required autofocus value="{{ request.form.name }}">
+
+        <label for="inputContact" class="sr-only">Primary Contact</label>
+        <input type="text" name="inputContact" id="inputContact" class="form-control"
+         placeholder="Primary Contact Name" required autofocus value="{{ request.form.contact }}">
+         
+        <label for="inputPhone" class="sr-only">Phone Number</label>
+        <input type="text" name="inputPhone" id="inputPhone" class="form-control"
+         placeholder="Phone Number" required value="{{ request.form.phone }}">
+         
+         <input class="btn btn-default" type="submit" value="Login">-->
+        <button id="btnContact" class="btn btn-lg btn-primary btn-block" type="submit">Alert 911, contact and locate nearest AED</button>
+      </div>
+ 
+       
+ 
+      <footer class="footer">
+        <p>&copy; Cardiac Alert 2017</p>
+      </footer>
+ 
+    </div>
+  </body>
+</html>
+{% endblock %}
