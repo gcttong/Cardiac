@@ -34,7 +34,7 @@ def qr():
     cur = g.db.execute('select * from contacts')
     posts = [dict(victim=row[0], contact=row[1], phone=row[2]) for row in cur.fetchall()]
     g.db.close()
-    return render_template('qr.html', posts=posts, crazy=str(3))
+    return render_template('qr.html', posts=posts, crazy='/qresults')
 
 @app.route('/info/<name><contact><phone>', methods=['GET', 'POST'])
 def info(name, contact, phone):
