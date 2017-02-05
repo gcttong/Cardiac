@@ -18,7 +18,6 @@ def signup():
         #if len(str(request.form['inputPhone'])) != 10:
         #    error = 'Invalid credentials'
         #else:
-        print "execute"
         return redirect(url_for('qr'))
     return redirect(url_for('qr'))
     #else:
@@ -31,7 +30,7 @@ def qr():
     cur = g.db.execute('select * from contacts')
     posts = [dict(victim=row[0], contact=row[1], phone=row[2]) for row in cur.fetchall()]
     g.db.close()
-    return render_template('qr.html', posts=posts)
+    return render_template('qr.html', posts=posts, crazy=str(3))
 
 '''@app.route('/info', methods=['GET', 'POST'])
 def info():

@@ -10,12 +10,19 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to Flask!</h2>
+      <h1>QR code generated</h2>
       <br>
       <p>Click <a href="/">here</a> to go home.</p>
+      <script>console.log(crazy)</script>
+      
+<img id ="hello there" src="https://api.qrserver.com/v1/create-qr-code/?data="/>
+<script>
+var number = '{{crazy}}';
+document.getElementById("hello there").src="https://api.qrserver.com/v1/create-qr-code/?data="+number</script>
     </div>
     <h3>Data:</h3>
 {% for post in posts %}
+
   <strong>Victim:</strong> {{ post.victim }} <br>
   <strong>Contact:</strong> {{ post.contact }} <br>
   <strong>Contact Phone Number:</strong> {{ post.phone }} <br>
