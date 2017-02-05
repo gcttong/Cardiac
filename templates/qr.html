@@ -18,7 +18,7 @@
 <img id ="hello there" src="https://api.qrserver.com/v1/create-qr-code/?data="/>
 <script>
 var number = '{{crazy}}';
-document.getElementById("hello there").src="https://api.qrserver.com/v1/create-qr-code/?data="+number</script>
+document.getElementById("hello there").src="https://api.qrserver.com/v1/create-qr-code/?data="+'http://localhost:5000/'+'qresults/'</script>
     </div>
     <h3>Data:</h3>
 {% for post in posts %}
