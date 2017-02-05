@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QR Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Flask!</h2>
+      <br>
+      <p>Click <a href="/">here</a> to go home.</p>
+    </div>
+    <h3>Data:</h3>
+{% for post in posts %}
+  <strong>Victim:</strong> {{ post.victim }} <br>
+  <strong>Contact:</strong> {{ post.contact }} <br>
+  <strong>Contact Phone Number:</strong> {{ post.phone }} <br>
+<br>
+{% endfor %}
+  </body>
+</html>
+{% endblock %}

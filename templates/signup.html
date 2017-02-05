@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Python Flask Bucket List App</title>
+    <title>Cardiac Alert</title>
  
     
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,27 +17,34 @@
       <div class="header">
         <nav>
         </nav>
-        <h3 class="text-muted">Cardiac Alert</h3>
+        <h1 class="text-muted">Cardiac Alert</h1>
       </div>
  
       <div class="jumbotron">
-        <h1>Generate your QR code</h1>
-        <form class="form-signin">
+        <h2>Generate your QR code</h2>
+        <form class="form-signin" action="/signup" method="post">
+
         <label for="inputName" class="sr-only">Name</label>
-        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
-        <label for="inputEmail" class="sr-only">Primary Contact</label>
-        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Primary Contact" required autofocus>
-        <label for="inputPassword" class="sr-only">Phone-number</label>
-        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Phone Number" required>
+        <input type="text" name="inputName" id="inputName" class="form-control" 
+        placeholder="Name" required autofocus value="{{ request.form.name }}">
+
+        <label for="inputContact" class="sr-only">Primary Contact</label>
+        <input type="text" name="inputContact" id="inputContact" class="form-control"
+         placeholder="Primary Contact Name" required autofocus value="{{ request.form.contact }}">
          
-        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
+        <label for="inputPhone" class="sr-only">Phone Number</label>
+        <input type="text" name="inputPhone" id="inputPhone" class="form-control"
+         placeholder="Phone Number" required value="{{ request.form.phone }}">
+         
+         <!--<input class="btn btn-default" type="submit" value="Login">-->
+        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Generate QR Code</button>
       </form>
       </div>
  
        
  
       <footer class="footer">
-        <p>&copy; Company 2015</p>
+        <p>&copy; Cardiac Alert 2017</p>
       </footer>
  
     </div>
