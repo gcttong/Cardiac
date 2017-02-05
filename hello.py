@@ -17,11 +17,6 @@ def main():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-<<<<<<< HEAD
-        #if len(str(request.form['inputPhone'])) != 10:
-        #    error = 'Invalid credentials'
-        #else:
-=======
         g.db = connect_db()
         victim = str(request.form['inputName'])
         contact = str(request.form['inputContact'])
@@ -29,7 +24,6 @@ def signup():
         g.db.execute('insert into contacts values (?, ?, ?)', (victim, contact, phone))
         g.db.commit()
         g.db.close()
->>>>>>> 14982bc1adbbcf6fd33f799106f97af911c97d8e
         return redirect(url_for('qr'))
     return render_template('signup.html')
 
